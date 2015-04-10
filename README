@@ -1,0 +1,9 @@
+These are some of my contributions to Bubbl.li. This code doesn't work independently of the rest of the MEAN stack. These are a few pieces of my work:
+
+-Forage Google goes zip-code by zip-code. It takes each of the restaurants, offices, and shops in our AWS Mongo database, then queries Google places for business hours, phone numbers, and reviews, then updates the original item. It stays within the threshold of daily Google Places API queries (Google is pretty generous with those).
+
+-I added security measures to photo and avatar uploads, including MIME checking and filesize limits. I redirected the uploads to AWS S3 buckets. It deletes the temp file on the cloud server if the files are oversize or if they are not .jpg or .jpeg or .png, whether or not they are labeled as such. I also drafted a basic sitemap generator, which is probably not in use because Bubbl.li has a million bubbles, a constantly expanding number of pages to add to the sitemap, and it's not very necessary for search engines to be updated about each of them. 
+
+-worlds_query is where I query the Mongo database to find bubbles within two ranges -- 150m and 1.5km--of the user coordinates, (the lat and long of the incoming http request). I rank and sort the bubbles and send the most relevant ones back.
+
+-random_bubble is a query that picks a bubble near the user coordinates. the point is to keep the user from having to press the back-button or navigate to the home page, but to be intrigued by other possibilities presented at the bottom of the page. 
