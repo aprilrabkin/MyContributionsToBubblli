@@ -1,6 +1,6 @@
 These are some of my contributions to Bubbl.li. This code doesn't work independently of the rest of the MEAN stack. These are a few pieces of my work:
 
--Forage Google goes zip-code by zip-code. It takes each of the restaurants, offices, and shops in our AWS Mongo database, then queries Google places for business hours, phone numbers, and reviews, then updates the original item. It stays within the threshold of daily Google Places API queries (Google is pretty generous with those).
+-Forage Google goes zip-code by zip-code. It takes each of the restaurants, offices, and shops already saved in our AWS Mongo database, then queries "Google Places" for their business hours, phone numbers, and reviews, then updates the original item. I had to make it recursive because the MongoDB _ids are not clear at the outset. I had to use TimeOuts to space the queries in order to stay within Google's threshold of maximum daily Google Places API queries.
 
 -I added security measures to photo and avatar uploads, including MIME checking and filesize limits. I redirected the uploads to AWS S3 buckets. It deletes the temp file on the cloud server if the files are oversize or if they are not .jpg or .jpeg or .png, whether or not they are labeled as such. I also drafted a basic sitemap generator, which is probably not in use because Bubbl.li has a million bubbles, a constantly expanding number of pages to add to the sitemap, and it's not very necessary for search engines to be updated about each of them. 
 
